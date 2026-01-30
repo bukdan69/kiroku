@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.*
+
+# Testing
+coverage
+*.log
+
+# Next.js
+.next
+out
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation (optional - keep if you want docs in production)
+# docs/
+# *.md
+
+# SQL scripts (keep these out of production)
+*.sql
+
+# Analysis tools
+analyze-*.js
+check-*.js
+test-*.js
+
+# Build info
+*.tsbuildinfo
