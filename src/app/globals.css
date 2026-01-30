@@ -7,98 +7,148 @@
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. All colors MUST be HSL.*/
 
 @layer base {
+  /* 
+   * Kiroku Brand Colors - AWS Inspired
+   * Target: Ibu rumah tangga & Gen Z
+   * Default: Dark Mode
+   */
+  
   :root {
-    --background: 240 4% 95%;
-    --foreground: 240 5% 10%;
-    --card: 0 0% 98%;
-    --card-foreground: 240 5% 10%;
-    --popover: 240 5% 90%;
-    --popover-foreground: 240 5% 10%;
-    --primary: 335 77.5701% 41.9608%;
-    --primary-foreground: 327 73% 97%;
-    --secondary: 240 5% 33%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 4% 83%;
-    --muted-foreground: 240 5% 10%;
-    --accent: 355 100% 97%;
-    --accent-foreground: 349 89% 60%;
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
-    --border: 240 4% 83%;
-    --input: 240 4% 83%;
-    --ring: 333 71% 50%;
+    /* Light Mode Colors */
+    --background: 0 0% 100%;                    /* White */
+    --foreground: 210 20% 30%;                  /* Slate 700 */
+    --card: 0 0% 100%;                          /* White */
+    --card-foreground: 210 20% 30%;             /* Slate 700 */
+    --popover: 0 0% 100%;                       /* White */
+    --popover-foreground: 210 20% 30%;          /* Slate 700 */
+    
+    /* Primary: AWS Orange */
+    --primary: 33 100% 50%;                     /* #FF9900 */
+    --primary-foreground: 0 0% 100%;            /* White */
+    
+    /* Secondary: Blue (Trust) */
+    --secondary: 210 100% 52%;                  /* #0A85FF */
+    --secondary-foreground: 0 0% 100%;          /* White */
+    
+    /* Muted */
+    --muted: 210 20% 95%;                       /* Slate 100 */
+    --muted-foreground: 210 20% 50%;            /* Slate 500 */
+    
+    /* Accent: Teal (Growth) */
+    --accent: 174 62% 40%;                      /* #2AB09E */
+    --accent-foreground: 0 0% 100%;             /* White */
+    
+    /* Destructive: Red */
+    --destructive: 0 84% 60%;                   /* #EF4444 */
+    --destructive-foreground: 0 0% 100%;        /* White */
+    
+    /* Borders */
+    --border: 210 20% 90%;                      /* Slate 200 */
+    --input: 210 20% 90%;                       /* Slate 200 */
+    --ring: 33 100% 50%;                        /* Orange */
+    
+    /* Radius */
     --radius: 0.75rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5% 10%;
-    --sidebar-primary: 333 71% 50%;
-    --sidebar-primary-foreground: 327 73% 97%;
-    --sidebar-accent: 240 5% 33%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 4% 83%;
-    --sidebar-ring: 333 71% 50%;
-    --chart-1: 328 85% 70%;
-    --chart-2: 351 94% 71%;
-    --chart-3: 327 87% 81%;
-    --chart-4: 352 95% 81%;
-    --chart-5: 240 3% 46%;
-    --sidebar: 0 0% 98%;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;            /* White */
+    --sidebar-foreground: 210 20% 30%;          /* Slate 700 */
+    --sidebar-primary: 33 100% 50%;             /* Orange */
+    --sidebar-primary-foreground: 0 0% 100%;    /* White */
+    --sidebar-accent: 210 100% 52%;             /* Blue */
+    --sidebar-accent-foreground: 0 0% 100%;     /* White */
+    --sidebar-border: 210 20% 90%;              /* Slate 200 */
+    --sidebar-ring: 33 100% 50%;                /* Orange */
+    --sidebar: 0 0% 100%;                       /* White */
+    
+    /* Charts */
+    --chart-1: 33 100% 50%;                     /* Orange */
+    --chart-2: 210 100% 52%;                    /* Blue */
+    --chart-3: 174 62% 40%;                     /* Teal */
+    --chart-4: 270 67% 60%;                     /* Purple */
+    --chart-5: 142 76% 45%;                     /* Green */
+    
+    /* Fonts */
     --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: "Crimson Pro", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: Inconsolata, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    
+    /* Shadows - Light */
+    --shadow-2xs: 0 1px 2px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 2px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 2px 0px hsl(0 0% 0% / 0.05);
     --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 8px 10px -6px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
+    
+    /* Spacing */
     --tracking-normal: 0em;
     --spacing: 0.25rem;
   }
 
   .dark {
-    --background: 222 47.3684% 11.1765%;
-    --foreground: 0 0% 98%;
-    --card: 240 3% 15%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 5% 26%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 210 40% 98.0392%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 240 3% 46%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3% 46%;
-    --muted-foreground: 0 0% 98%;
-    --accent: 343 87% 15%;
-    --accent-foreground: 351 94% 71%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 85% 97%;
-    --border: 240 5% 33%;
-    --input: 240 5% 33%;
-    --ring: 328 85% 70%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 328 85% 70%;
-    --sidebar-primary-foreground: 336 83% 17%;
-    --sidebar-accent: 351 94% 71%;
-    --sidebar-accent-foreground: 343 87% 15%;
-    --sidebar-border: 240 5% 33%;
-    --sidebar-ring: 328 85% 70%;
-    --chart-1: 327 87% 81%;
-    --chart-2: 352 95% 81%;
-    --chart-3: 328 85% 70%;
-    --chart-4: 351 94% 71%;
-    --chart-5: 240 5% 33%;
-    --sidebar: 240 3% 15%;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 1px 1px 13.75px 2px hsla(142, 71%, 45%, 0.65);
-    --shadow: 1px 1px 27.5px 2px hsla(142, 71%, 45%, 0.65);
-    --shadow-md: 1px 1px 41.25px 2px hsla(142, 71%, 45%, 0.65);
-    --shadow-lg: 1px 1px 68.75px 2px hsla(142, 71%, 45%, 0.65);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    /* Dark Mode Colors (Default) - AWS Inspired */
+    --background: 210 20% 12%;                  /* Slate 900 - #0F172A */
+    --foreground: 210 20% 80%;                  /* Slate 300 - #CBD5E1 */
+    --card: 210 20% 16%;                        /* Between 900-800 */
+    --card-foreground: 210 20% 80%;             /* Slate 300 */
+    --popover: 210 20% 20%;                     /* Slate 800 */
+    --popover-foreground: 210 20% 80%;          /* Slate 300 */
+    
+    /* Primary: AWS Orange (Brighter for dark) */
+    --primary: 33 100% 60%;                     /* #FF9933 */
+    --primary-foreground: 210 20% 12%;          /* Dark text */
+    
+    /* Secondary: Blue (Brighter for dark) */
+    --secondary: 210 100% 68%;                  /* #5CADFF */
+    --secondary-foreground: 210 20% 12%;        /* Dark text */
+    
+    /* Muted */
+    --muted: 210 20% 25%;                       /* Darker muted */
+    --muted-foreground: 210 20% 65%;            /* Slate 400 */
+    
+    /* Accent: Teal (Brighter for dark) */
+    --accent: 174 62% 52%;                      /* #47D6C3 */
+    --accent-foreground: 210 20% 12%;           /* Dark text */
+    
+    /* Destructive: Red (Brighter for dark) */
+    --destructive: 0 84% 65%;                   /* #F87171 */
+    --destructive-foreground: 210 20% 98%;      /* Light text */
+    
+    /* Borders */
+    --border: 210 20% 25%;                      /* Subtle border */
+    --input: 210 20% 25%;                       /* Subtle input border */
+    --ring: 33 100% 60%;                        /* Orange */
+    
+    /* Sidebar */
+    --sidebar-background: 210 20% 12%;          /* Slate 900 */
+    --sidebar-foreground: 210 20% 80%;          /* Slate 300 */
+    --sidebar-primary: 33 100% 60%;             /* Orange */
+    --sidebar-primary-foreground: 210 20% 12%;  /* Dark text */
+    --sidebar-accent: 210 100% 68%;             /* Blue */
+    --sidebar-accent-foreground: 210 20% 12%;   /* Dark text */
+    --sidebar-border: 210 20% 25%;              /* Subtle border */
+    --sidebar-ring: 33 100% 60%;                /* Orange */
+    --sidebar: 210 20% 16%;                     /* Slightly lighter */
+    
+    /* Charts */
+    --chart-1: 33 100% 60%;                     /* Orange */
+    --chart-2: 210 100% 68%;                    /* Blue */
+    --chart-3: 174 62% 52%;                     /* Teal */
+    --chart-4: 270 67% 60%;                     /* Purple */
+    --chart-5: 142 76% 50%;                     /* Green */
+    
+    /* Shadows - Dark (More prominent) */
+    --shadow-2xs: 0 1px 2px 0px hsl(0 0% 0% / 0.3);
+    --shadow-xs: 0 1px 2px 0px hsl(0 0% 0% / 0.3);
+    --shadow-sm: 0 1px 2px 0px hsl(0 0% 0% / 0.3);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.4), 0 1px 2px -1px hsl(0 0% 0% / 0.4);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -4px hsl(0 0% 0% / 0.5);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.6), 0 8px 10px -6px hsl(0 0% 0% / 0.6);
+    --shadow-2xl: 0 25px 50px -12px hsl(0 0% 0% / 0.7);
   }
 }
 
