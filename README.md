@@ -109,10 +109,27 @@ npm run db:seed
 
 6. **Start development server**
 ```bash
-npm run dev
+npm run dev -- -p 3001
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3001](http://localhost:3001)
+
+## 🔐 Super Admin Setup
+
+Setelah database schema di-push, setup super admin:
+
+1. **Buka Supabase SQL Editor**
+   - https://supabase.com/dashboard/project/YOUR_PROJECT/sql/new
+
+2. **Run Setup Query**
+   - Copy query dari file `FINAL_SETUP.sql`
+   - Paste dan execute di SQL Editor
+
+3. **Login ke Platform Admin**
+   - URL: http://localhost:3001/platform/login
+   - Credentials: Lihat `SUPER_ADMIN_USERS.md`
+
+**Dokumentasi Lengkap:** `SYSTEM_READY.md`
 
 ## 🏗️ Project Structure
 
@@ -234,6 +251,12 @@ Lihat [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md) untuk detail lengkap.
 
 ## 📚 Documentation
 
+### Essential Files
+- **SYSTEM_READY.md** - Complete system status & overview
+- **SUPER_ADMIN_USERS.md** - Admin credentials & management
+- **FINAL_SETUP.sql** - Super admin setup query
+
+### Detailed Guides
 - [Quick Start Guide](./docs/QUICK_START.md)
 - [Design System](./docs/COMPLETE_SYSTEM_CONSISTENCY.md)
 - [Testing Guide](./docs/TESTING_GUIDE.md)

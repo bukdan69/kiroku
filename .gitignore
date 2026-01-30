@@ -61,3 +61,29 @@ Thumbs.db
 
 # Drizzle
 drizzle/
+
+# Temporary documentation (keep only essential files)
+CARA_MASUK_*.md
+MULAI_*.md
+QUICK_ACCESS_*.md
+README_SUPER_ADMIN*.md
+SETUP_COMPLETE*.md
+SOLUSI_*.md
+SUPER_ADMIN_*SOLUTION*.md
+SUPER_ADMIN_SETUP_GUIDE*.md
+SUPER_ADMIN_TROUBLESHOOTING*.md
+VERIFY_USER*.md
+GITHUB_PUSH_SUCCESS*.md
+
+# Temporary SQL scripts (keep only FINAL_SETUP.sql)
+setup-super-admin.sql
+setup-bukdan*.sql
+make-super-admin*.sql
+create-platform-tenant.sql
+check-tables.sql
+analyze-database.sql
+
+# Temporary analysis tools
+analyze-db.js
+check-db.js
+test-super-admin.js
