@@ -217,23 +217,25 @@ export function AppSidebar() {
               )}>
                 <h3 className="px-2 text-xs font-semibold text-muted-foreground">Super Admin</h3>
                 <nav className="space-y-1 mt-2">
-                {superAdminItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors",
-                      isActive(item.href) && "bg-accent text-accent-foreground",
-                      !sidebarOpen && "justify-center px-2 py-1.5 text-xs"
-                    )}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {sidebarOpen && <span>{item.title}</span>}
-                  </Link>
-                ))}
-              </nav>
-            </div>
+                  {superAdminItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors",
+                        isActive(item.href) && "bg-accent text-accent-foreground",
+                        !sidebarOpen && "justify-center px-2 py-1.5 text-xs"
+                      )}
+                    >
+                      <item.icon className="h-4 w-4" />
+                      {sidebarOpen && <span>{item.title}</span>}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
             )}
+          </div>
+        )}
 
         {/* Notifications */}
         {sidebarOpen && (
@@ -292,7 +294,6 @@ export function AppSidebar() {
             <LogOut className="h-4 w-4" />
           </Button>
         </div>
-      </div>
       </div>
 
       {/* Mobile Backdrop */}

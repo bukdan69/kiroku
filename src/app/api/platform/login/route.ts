@@ -24,19 +24,23 @@ export async function POST(request: NextRequest) {
     });
 
     if (authError || !authData.user) {
-      // Log failed login attempt
-      await db.insert(auditLogs).values({
-        tenantId: 'platform', // Special tenant for platform admin
-        action: 'login',
-        entityType: 'platform_admin',
-        metadata: {
-          email,
-          success: false,
-          reason: authError?.message || 'Invalid credentials',
-        },
-        ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
-        userAgent: request.headers.get('user-agent') || 'unknown',
-      });
+      // Log failed login attempt (skip if audit_logs table doesn't exist)
+      try {
+        await db.insert(auditLogs).values({
+          tenantId: 'platform',
+          action: 'login',
+          entityType: 'platform_admin',
+          metadata: {
+            email,
+            success: false,
+            reason: authError?.message || 'Invalid credentials',
+          },
+          ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
+          userAgent: request.headers.get('user-agent') || 'unknown',
+        });
+      } catch (auditError) {
+        console.warn('Failed to log audit (table may not exist):', auditError);
+      }
 
       return NextResponse.redirect(
         new URL('/platform/login?error=invalid_credentials', request.url)
@@ -55,20 +59,24 @@ export async function POST(request: NextRequest) {
       // Not a super admin - sign out
       await supabase.auth.signOut();
 
-      // Log unauthorized attempt
-      await db.insert(auditLogs).values({
-        userId: authData.user.id,
-        tenantId: 'platform',
-        action: 'login',
-        entityType: 'platform_admin',
-        metadata: {
-          email,
-          success: false,
-          reason: 'Not a super admin',
-        },
-        ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
-        userAgent: request.headers.get('user-agent') || 'unknown',
-      });
+      // Log unauthorized attempt (skip if audit_logs table doesn't exist)
+      try {
+        await db.insert(auditLogs).values({
+          userId: authData.user.id,
+          tenantId: 'platform',
+          action: 'login',
+          entityType: 'platform_admin',
+          metadata: {
+            email,
+            success: false,
+            reason: 'Not a super admin',
+          },
+          ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
+          userAgent: request.headers.get('user-agent') || 'unknown',
+        });
+      } catch (auditError) {
+        console.warn('Failed to log audit (table may not exist):', auditError);
+      }
 
       return NextResponse.redirect(
         new URL('/platform/login?error=unauthorized', request.url)
@@ -80,19 +88,23 @@ export async function POST(request: NextRequest) {
       .set({ lastLoginAt: new Date() })
       .where(eq(users.id, user.id));
 
-    // 4. Log successful login
-    await db.insert(auditLogs).values({
-      userId: user.id,
-      tenantId: 'platform',
-      action: 'login',
-      entityType: 'platform_admin',
-      metadata: {
-        email,
-        success: true,
-      },
-      ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
-      userAgent: request.headers.get('user-agent') || 'unknown',
-    });
+    // 4. Log successful login (skip if audit_logs table doesn't exist)
+    try {
+      await db.insert(auditLogs).values({
+        userId: user.id,
+        tenantId: 'platform',
+        action: 'login',
+        entityType: 'platform_admin',
+        metadata: {
+          email,
+          success: true,
+        },
+        ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
+        userAgent: request.headers.get('user-agent') || 'unknown',
+      });
+    } catch (auditError) {
+      console.warn('Failed to log audit (table may not exist):', auditError);
+    }
 
     // 5. Redirect to platform dashboard
     return NextResponse.redirect(new URL('/platform/dashboard', request.url));

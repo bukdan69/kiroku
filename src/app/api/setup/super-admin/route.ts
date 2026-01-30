@@ -163,17 +163,16 @@ export async function GET() {
       );
     }
 
-    const superAdmins = await db.query.users.findMany({
-      where: eq(users.role, 'super_admin'),
-      columns: {
-        id: true,
-        email: true,
-        name: true,
-        role: true,
-        isActive: true,
-        createdAt: true
-      }
-    });
+    const superAdmins = await db.select({
+      id: users.id,
+      email: users.email,
+      name: users.name,
+      role: users.role,
+      isActive: users.isActive,
+      createdAt: users.createdAt
+    })
+    .from(users)
+    .where(eq(users.role, 'super_admin'));
 
     return NextResponse.json({
       count: superAdmins.length,
