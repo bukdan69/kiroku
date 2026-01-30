@@ -224,30 +224,30 @@ npm test -- tests/api/admin.test.ts
 
 ### Vercel (Recommended)
 
-1. Push code ke GitHub
-2. Import project di Vercel
-3. Set environment variables
-4. Deploy!
+**Status:** ✅ Ready to deploy!
 
-```bash
-# Build for production
-npm run build
+**Quick Deploy:**
+1. Login to https://vercel.com
+2. Import repository: `bukdan69/kiroku`
+3. Add environment variables (see `.env.example`)
+4. Click Deploy!
 
-# Start production server
-npm start
-```
+**Detailed Guide:** See `DEPLOY_NOW.md` for step-by-step instructions
 
-### Docker
+**Full Documentation:** See `VERCEL_DEPLOYMENT.md` for complete guide
 
-```bash
-# Build image
-docker build -t arisan-ku .
+### Environment Variables
+Set di Vercel dashboard:
+- `DATABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `MIDTRANS_*` keys (optional)
+- `RESEND_API_KEY` (optional)
+- `TWILIO_*` keys (optional)
 
-# Run container
-docker run -p 3000:3000 arisan-ku
-```
-
-Lihat [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md) untuk detail lengkap.
+**Time to Deploy:** 5-10 minutes  
+**Cost:** Free (Hobby plan)
 
 ## 📚 Documentation
 
