@@ -145,11 +145,12 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   
@@ -336,23 +337,25 @@
 @layer components {
   /* Button hover effects */
   .btn-hover-effect {
-    @apply transition-all duration-200 ease-out;
+    transition: all 0.2s ease-out;
   }
   
   .btn-hover-effect:hover {
-    @apply scale-[1.02] shadow-md;
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
   }
   
   .btn-hover-effect:active {
-    @apply scale-[0.98];
+    transform: scale(0.98);
   }
   
   /* Card hover effects */
   .card-hover-effect {
-    @apply transition-all duration-300 ease-out;
+    transition: all 0.3s ease-out;
   }
   
   .card-hover-effect:hover {
-    @apply shadow-lg -translate-y-1;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
   }
 }
