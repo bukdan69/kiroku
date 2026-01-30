@@ -10,7 +10,7 @@ import CTASection from '@/components/landing/CTASection'
 import Footer from '@/components/landing/Footer'
 
 export default async function HomePage() {
-  const supabase = createServerClient()
+  const supabase = await createServerClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   if (user) {

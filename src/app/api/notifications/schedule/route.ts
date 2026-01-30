@@ -16,7 +16,7 @@ const NOTIFICATION_SCHEDULES = {
 }
 
 export async function POST(request: NextRequest) {
-  const supabase = createServerClient()
+  const supabase = await createServerClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   if (!user) {

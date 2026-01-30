@@ -68,13 +68,27 @@ const HowItWorksSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16">
-          <a
-            href="/auth"
-            className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Mulai Sekarang Gratis
-          </a>
+        <div className="text-center mt-16 space-y-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/auth"
+              className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Mulai Sekarang Gratis
+            </a>
+            <a
+              href="/panduan-pengelola"
+              className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
+            >
+              Panduan Pengelola
+            </a>
+            <a
+              href="/panduan-peserta"
+              className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
+            >
+              Panduan Peserta
+            </a>
+          </div>
         </div>
       </div>
     </section>

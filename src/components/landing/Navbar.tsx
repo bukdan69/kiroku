@@ -11,6 +11,8 @@ const Navbar = () => {
   const navLinks = [
     { href: "#features", label: "Fitur" },
     { href: "#how-it-works", label: "Cara Kerja" },
+    { href: "/panduan-pengelola", label: "Panduan Pengelola" },
+    { href: "/panduan-peserta", label: "Panduan Peserta" },
     { href: "#testimonials", label: "Testimoni" },
     { href: "#faq", label: "FAQ" },
   ]

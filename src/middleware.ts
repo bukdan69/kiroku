@@ -7,33 +7,76 @@ import { users } from '@/lib/db/schema'
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Protected routes
-  const protectedRoutes = ['/dashboard', '/api/protected']
+  // Platform Admin routes (Super Admin only)
+  const platformRoutes = ['/platform/dashboard', '/platform/kyc', '/platform/users', '/platform/fraud', '/platform/analytics', '/platform/audit', '/platform/settings', '/platform/affiliate']
+  const isPlatformRoute = platformRoutes.some(route => pathname.startsWith(route))
+
+  // Protected routes (Regular users)
+  const protectedRoutes = ['/dashboard', '/admin', '/api/protected']
   const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route))
 
   // Public routes
-  const publicRoutes = ['/', '/auth', '/api/auth']
+  const publicRoutes = ['/', '/auth', '/api/auth', '/platform/login', '/panduan-pengelola', '/panduan-peserta', '/about', '/privacy', '/terms']
   const isPublicRoute = publicRoutes.some(route => pathname.startsWith(route))
 
-  if (!isProtectedRoute && !isPublicRoute) {
+  // Allow public routes
+  if (isPublicRoute && !isPlatformRoute && !isProtectedRoute) {
     return NextResponse.next()
   }
 
-  const supabase = createServerClient()
+  const supabase = await createServerClient()
   const { data: { user } } = await supabase.auth.getUser()
 
-  if (isProtectedRoute && !user) {
-    const redirectUrl = new URL('/auth', request.url)
-    return NextResponse.redirect(redirectUrl)
+  // Platform Admin Protection
+  if (isPlatformRoute) {
+    if (!user) {
+      return NextResponse.redirect(new URL('/platform/login', request.url))
+    }
+
+    // Check if user is super_admin
+    try {
+      const dbUser = await db.query.users.findFirst({
+        where: eq(users.id, user.id),
+      })
+
+      if (!dbUser || dbUser.role !== 'super_admin') {
+        // Not a super admin - redirect to platform login with error
+        return NextResponse.redirect(new URL('/platform/login?error=unauthorized', request.url))
+      }
+    } catch (error) {
+      console.error('Error checking super admin:', error)
+      return NextResponse.redirect(new URL('/platform/login?error=server_error', request.url))
+    }
   }
 
+  // Regular Protected Routes
+  if (isProtectedRoute && !user) {
+    return NextResponse.redirect(new URL('/auth', request.url))
+  }
+
+  // Redirect authenticated users from auth page
   if (user && pathname === '/auth') {
-    const redirectUrl = new URL('/dashboard', request.url)
-    return NextResponse.redirect(redirectUrl)
+    // Check role to redirect appropriately
+    try {
+      const dbUser = await db.query.users.findFirst({
+        where: eq(users.id, user.id),
+      })
+
+      if (dbUser?.role === 'super_admin') {
+        return NextResponse.redirect(new URL('/platform/dashboard', request.url))
+      } else if (dbUser?.role === 'admin' || dbUser?.role === 'bandar') {
+        return NextResponse.redirect(new URL('/admin/dashboard', request.url))
+      } else {
+        return NextResponse.redirect(new URL('/dashboard', request.url))
+      }
+    } catch (error) {
+      console.error('Error checking user role:', error)
+      return NextResponse.redirect(new URL('/dashboard', request.url))
+    }
   }
 
   // Update user last login time for authenticated requests
-  if (user && isProtectedRoute) {
+  if (user && (isProtectedRoute || isPlatformRoute)) {
     try {
       await db.update(users)
         .set({ 

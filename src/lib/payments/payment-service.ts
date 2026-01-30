@@ -23,8 +23,6 @@ interface CreateTransactionData {
 
 // Payment Processing Service
 export class PaymentService {
-  private supabase = createServerClient()
-
   // Create contribution payment
   async createContributionPayment(data: {
     userId: string
@@ -33,11 +31,12 @@ export class PaymentService {
     method: PaymentMethod
     periodId: string
   }) {
+    const supabase = await createServerClient()
     const orderId = `TRX-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`
 
     try {
       // Get user details for customer info
-      const { data: user } = await this.supabase
+      const { data: user } = await supabase
         .from('users')
         .select('name, email, phone')
         .eq('id', data.userId)
