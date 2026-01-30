@@ -4,8 +4,8 @@ import { config } from 'dotenv'
 config({ path: '.env' })
 
 export default defineConfig({
-  schema: './lib/db/schema.ts',
-  out: './lib/db/migrations',
+  schema: './src/lib/db/schema.ts',
+  out: './supabase/migrations',
   dialect: 'postgresql',
   dbCredentials: {
     url: process.env.DATABASE_URL!,
