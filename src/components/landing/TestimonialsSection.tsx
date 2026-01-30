@@ -49,18 +49,21 @@ const TestimonialsSection = () => {
   ]
 
   return (
-    <section id="testimonials" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Dipercaya oleh <span className="text-primary">Ribuan Pengguna</span>
+    <section id="testimonials" className="py-16 bg-muted/30">
+      <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="text-center mb-12 max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Dipercaya oleh{" "}
+            <span className="bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Ribuan Pengguna
+            </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Lihat apa kata mereka yang sudah merasakan kemudahan Arisan KU
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
@@ -93,7 +96,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-12 border-t max-w-5xl mx-auto">
           <div className="text-center">
             <p className="text-4xl font-bold text-primary mb-2">10,000+</p>
             <p className="text-muted-foreground">Pengguna Aktif</p>

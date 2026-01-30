@@ -9,7 +9,7 @@ const HeroSection = () => {
   const router = useRouter()
 
   return (
-    <section className="relative pt-20 pb-32 overflow-hidden">
+    <section className="relative pt-16 pb-24 overflow-hidden">
       {/* Background decoration with glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse" />
@@ -17,7 +17,7 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Badge with gradient */}
           <div className="lg:col-span-2 flex justify-center animate-page-in">

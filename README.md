@@ -1,431 +1,282 @@
-# 🎯 Arisan KU - Platform Arisan Online Terpercaya
+# Arisan KU - Platform Arisan Digital Modern
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Drizzle ORM](https://img.shields.io/badge/Drizzle-ORM-green)](https://orm.drizzle.team/)
-[![Supabase](https://img.shields.io/badge/Supabase-Database-green?logo=supabase)](https://supabase.com/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+Platform arisan online terpercaya di Indonesia dengan sistem keamanan terbaik, transparansi penuh, dan kemudahan pengelolaan arisan digital.
 
-Platform arisan online enterprise-level dengan sistem keamanan terbaik, notifikasi otomatis, dan pembayaran yang terintegrasi. Dibangun dengan teknologi modern untuk memberikan pengalaman terbaik dalam mengelola arisan digital.
-
-![Arisan KU Banner](https://via.placeholder.com/1200x400/3B82F6/FFFFFF?text=Arisan+KU+-+Platform+Arisan+Online+Terpercaya)
-
----
+![Next.js](https://img.shields.io/badge/Next.js-16.1.5-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ## ✨ Fitur Utama
 
-### 🔐 Keamanan & Verifikasi
-- ✅ KYC Verification System
-- ✅ Fraud Detection & Prevention
-- ✅ Device Fingerprinting
-- ✅ Location Tracking
-- ✅ Audit Logs & Monitoring
-- ✅ Row Level Security (RLS)
+### Untuk Peserta
+- 🔐 **KYC Verification** - Keamanan maksimal dengan verifikasi identitas
+- 💳 **Multi Payment Gateway** - Berbagai metode pembayaran via Midtrans
+- 📱 **WhatsApp Notifications** - Update real-time untuk setiap transaksi
+- 📊 **Dashboard Lengkap** - Pantau semua arisan dalam satu tempat
+- 🎲 **Fair Draw System** - Sistem undian transparan dengan commit-reveal scheme
 
-### 💰 Sistem Arisan
-- ✅ Multi-tenant Architecture
-- ✅ Period-based Management
-- ✅ Automated Winner Selection (Commit-Reveal)
-- ✅ Fair & Transparent Drawing
-- ✅ Member Management
-- ✅ Group Administration
+### Untuk Pengelola (Bandar)
+- 👥 **Multi-tenant System** - Kelola banyak grup arisan sekaligus
+- 💰 **Affiliate Program** - Komisi hingga 2% dari referral
+- 📈 **Analytics Dashboard** - Laporan lengkap dan audit logs
+- ⚙️ **Auto Reminders** - Notifikasi otomatis untuk pembayaran
+- 🔒 **Fraud Detection** - Sistem keamanan berlapis
 
-### 💳 Payment Integration
-- ✅ Midtrans Payment Gateway
-- ✅ Multiple Payment Methods
-- ✅ Wallet System
-- ✅ Escrow Management
-- ✅ Automated Payouts
-- ✅ Commission Tracking
-
-### 📱 Notification System
-- ✅ WhatsApp Integration
-- ✅ Multi-channel Support (Email, SMS, Push)
-- ✅ Scheduled Reminders (7, 3, 1 day)
-- ✅ Template Management
-- ✅ Delivery Tracking
-
-### 👥 User Management
-- ✅ Google OAuth Authentication
-- ✅ Role-based Access Control (5 roles)
-- ✅ Profile Management
-- ✅ Onboarding Flow
-- ✅ User Preferences
-
-### 📊 Admin Features
-- ✅ User Management Dashboard
-- ✅ KYC Review System
-- ✅ System Monitoring
-- ✅ Analytics & Reports
-- ✅ Violation Management
-
-### 🎨 Landing Page
-- ✅ 8 Sections Professional
-- ✅ SEO Optimized
-- ✅ Mobile Responsive
-- ✅ 7 Conversion Points
-- ✅ Legal Pages (Privacy, Terms, About)
-
----
+### Untuk Super Admin
+- 🌐 **Platform Management** - Kelola seluruh platform
+- 👤 **User Management** - Verifikasi KYC dan user roles
+- 📊 **System Analytics** - Monitor performa platform
+- 🔍 **Audit Logs** - Track semua aktivitas sistem
+- ⚙️ **System Settings** - Konfigurasi platform
 
 ## 🚀 Tech Stack
 
-### Frontend
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript 5
-- **UI Library:** React 19
-- **Styling:** Tailwind CSS 4
-- **Components:** shadcn/ui + Radix UI
-- **Animations:** Framer Motion
-
-### Backend
-- **API:** Next.js API Routes
-- **Database:** PostgreSQL (Supabase)
-- **ORM:** Drizzle ORM
-- **Authentication:** Supabase Auth + Google OAuth
-
-### Integrations
-- **Payment:** Midtrans Gateway
-- **Notifications:** WhatsApp API
-- **Storage:** Supabase Storage
-- **Real-time:** Supabase Subscriptions
-
-### DevOps
-- **Deployment:** Vercel (Recommended)
-- **Database:** Supabase Cloud
-- **Version Control:** Git + GitHub
-- **Package Manager:** npm/bun
-
----
+- **Framework**: Next.js 16.1.5 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Database**: PostgreSQL (Supabase)
+- **ORM**: Drizzle ORM
+- **Authentication**: Supabase Auth
+- **Payment**: Midtrans Gateway
+- **Notifications**: WhatsApp Business API
+- **Email**: Resend
+- **SMS**: Twilio
 
 ## 📦 Installation
 
 ### Prerequisites
-- Node.js 18+ or Bun
-- PostgreSQL database (Supabase recommended)
-- Google OAuth credentials
-- Midtrans account (for payment)
-- WhatsApp Business API (for notifications)
+- Node.js 18+ 
+- npm atau yarn
+- PostgreSQL database (atau Supabase account)
+- Midtrans account (untuk payment)
 
-### Quick Start
+### Setup
 
+1. **Clone repository**
 ```bash
-# 1. Clone repository
-git clone https://github.com/YOUR-USERNAME/arisan-ku.git
-cd arisan-ku
+git clone https://github.com/bukdan69/kiroku.git
+cd kiroku
+```
 
-# 2. Install dependencies
+2. **Install dependencies**
+```bash
 npm install
-# or
-bun install
+```
 
-# 3. Setup environment variables
+3. **Setup environment variables**
+```bash
 cp .env.example .env.local
-# Edit .env.local with your credentials
+```
 
-# 4. Setup database
-npm run db:setup
+Edit `.env.local` dengan credentials Anda:
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
-# 5. Start development server
+# Database
+DATABASE_URL=your_database_url
+
+# Midtrans
+MIDTRANS_SERVER_KEY=your_midtrans_server_key
+MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+MIDTRANS_IS_PRODUCTION=false
+
+# WhatsApp (optional)
+WHATSAPP_API_KEY=your_whatsapp_api_key
+WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
+
+# Email (optional)
+RESEND_API_KEY=your_resend_api_key
+
+# SMS (optional)
+TWILIO_ACCOUNT_SID=your_twilio_sid
+TWILIO_AUTH_TOKEN=your_twilio_token
+TWILIO_PHONE_NUMBER=your_twilio_number
+```
+
+4. **Run database migrations**
+```bash
+npm run db:push
+```
+
+5. **Seed database (optional)**
+```bash
+npm run db:seed
+```
+
+6. **Start development server**
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
----
-
-## ⚙️ Environment Variables
-
-Create `.env.local` file in root directory:
-
-```env
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-DATABASE_URL=postgresql://user:password@host:port/database
-
-# Google OAuth
-NEXT_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-
-# Application
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXTAUTH_SECRET=your_nextauth_secret
-
-# Payment (Midtrans)
-MERCHANT_ID=your_merchant_id
-MIDTRANS_SERVER_KEY=your_midtrans_server_key
-MIDTRANS_CLIENT_KEY=your_midtrans_client_key
-
-# WhatsApp (Optional)
-WHATSAPP_API_KEY=your_whatsapp_api_key
-WHATSAPP_PHONE_NUMBER=your_phone_number
-```
-
----
-
-## 📁 Project Structure
+## 🏗️ Project Structure
 
 ```
-arisan-ku/
+arisan-nextjs/
 ├── src/
 │   ├── app/                    # Next.js App Router
-│   │   ├── (auth)/            # Auth routes
-│   │   ├── (dashboard)/       # Dashboard routes
-│   │   ├── (admin)/           # Admin routes
+│   │   ├── (admin)/           # Admin pages
+│   │   ├── (auth)/            # Auth pages
+│   │   ├── (dashboard)/       # User dashboard
 │   │   ├── (public)/          # Public pages
-│   │   ├── api/               # API endpoints (20+)
-│   │   ├── dashboard/         # Dashboard pages
-│   │   └── page.tsx           # Landing page
+│   │   ├── api/               # API routes
+│   │   └── platform/          # Super admin pages
 │   ├── components/            # React components
-│   │   ├── landing/           # Landing page (8 sections)
-│   │   ├── layout/            # Layout components
-│   │   └── ui/                # shadcn/ui components
-│   ├── contexts/              # React contexts
-│   ├── hooks/                 # Custom hooks
-│   ├── lib/                   # Libraries & utilities
-│   │   ├── config/            # Configuration
-│   │   ├── db/                # Database (20+ tables)
-│   │   ├── payments/          # Payment integration
-│   │   ├── services/          # External services
-│   │   └── supabase/          # Supabase client
-│   └── middleware.ts          # Next.js middleware
-├── supabase/                  # Database migrations
-├── public/                    # Static assets
-└── [config files]
+│   │   ├── landing/          # Landing page sections
+│   │   ├── layout/           # Layout components
+│   │   └── ui/               # shadcn/ui components
+│   ├── contexts/             # React contexts
+│   ├── hooks/                # Custom hooks
+│   ├── lib/                  # Utilities & services
+│   │   ├── db/              # Database & schema
+│   │   ├── payments/        # Payment services
+│   │   └── services/        # External services
+│   └── middleware.ts         # Next.js middleware
+├── public/                   # Static files
+├── docs/                     # Documentation
+└── tests/                    # Test files
 ```
 
-See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed structure.
+## 🎨 Design System
 
----
+Platform menggunakan design system modern dengan:
+- **Color Palette**: Teal (#2AB09E) → Cyan (#5CE1E6) → Purple (#A855F7)
+- **Dark Theme**: Professional fintech aesthetic
+- **Gradient Effects**: Smooth transitions dan hover effects
+- **Responsive**: Mobile-first design
+- **Accessibility**: WCAG AA compliant
 
-## 🗄️ Database Schema
+Lihat [Design System Documentation](./docs/COMPLETE_SYSTEM_CONSISTENCY.md) untuk detail lengkap.
 
-20+ tables with comprehensive relationships:
+## 📱 Features Overview
 
-- **Multi-tenant:** `tenants`
-- **Users:** `users`, `profiles`, `user_roles`
-- **Arisan:** `arisan_groups`, `arisan_periods`, `arisan_members`
-- **Payment:** `wallets`, `transactions`, `payment_intents`
-- **Security:** `kyc_verifications`, `fraud_assessments`
-- **Notifications:** `notification_logs`
-- **Audit:** `audit_logs`
-- **Affiliate:** `affiliate_referrals`, `affiliate_commissions`
+### Authentication & Security
+- Google OAuth integration
+- Email/Password authentication
+- KYC verification system
+- Row Level Security (RLS)
+- Fraud detection
 
----
+### Payment System
+- Midtrans integration
+- Multiple payment methods
+- Automatic payment verification
+- Payout management
+- Transaction history
 
-## 🔧 Available Scripts
-
-```bash
-# Development
-npm run dev              # Start development server
-npm run build            # Build for production
-npm run start            # Start production server
-npm run lint             # Run ESLint
-
-# Database
-npm run db:generate      # Generate Drizzle migrations
-npm run db:migrate       # Run database migrations
-npm run db:setup         # Setup complete schema
-npm run db:push          # Push schema changes
-npm run db:studio        # Open Drizzle Studio
-```
-
----
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR-USERNAME/arisan-ku)
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
-```
-
-### Environment Setup
-1. Configure Supabase project
-2. Setup Google OAuth in Supabase
-3. Add environment variables to Vercel
-4. Run database migrations
-5. Deploy!
-
----
-
-## 📊 API Endpoints
-
-### User Management
-- `GET/PUT /api/user` - User profile
-- `GET /api/user/profile` - Profile details
-- `GET /api/user/role` - User role
+### Notification System
+- WhatsApp notifications
+- Email notifications
+- SMS notifications (optional)
+- Scheduled reminders
+- Custom templates
 
 ### Arisan Management
-- `GET/POST /api/arisan-groups` - Groups CRUD
-- `GET/PUT/DELETE /api/arisan-groups/[id]` - Group details
-- `POST /api/arisan-groups/[id]/join` - Join group
+- Create/join groups
+- Automatic draw system
+- Fair commit-reveal scheme
+- Payment tracking
+- Member management
 
-### KYC & Verification
-- `GET/POST /api/kyc` - KYC verification
-
-### Transactions
-- `GET /api/transactions` - Transaction history
-
-### Notifications
-- `POST /api/notifications/whatsapp` - Send WhatsApp
-- `POST /api/notifications/schedule` - Schedule notification
-
-See full API documentation in [API.md](docs/API.md)
-
----
-
-## 🎨 Customization
-
-### Update Site Configuration
-
-Edit `src/lib/config/site.ts`:
-
-```typescript
-export const siteConfig = {
-  name: "Arisan KU",
-  contact: {
-    email: "your-email@domain.com",
-    phone: "+62 xxx-xxxx-xxxx",
-    whatsapp: "62xxxxxxxxxx",
-    address: "Your address",
-  },
-  social: {
-    facebook: "https://facebook.com/yourpage",
-    instagram: "https://instagram.com/yourpage",
-    twitter: "https://twitter.com/yourpage",
-  },
-  // ... more config
-}
-```
-
----
+### Analytics & Reporting
+- Dashboard analytics
+- Transaction reports
+- User statistics
+- Audit logs
+- Data export
 
 ## 🧪 Testing
 
 ```bash
-# Run tests (when implemented)
-npm run test
+# Run tests
+npm test
 
-# Run tests in watch mode
-npm run test:watch
+# Run tests with coverage
+npm run test:coverage
 
-# Run E2E tests
-npm run test:e2e
+# Run specific test
+npm test -- tests/api/admin.test.ts
 ```
 
----
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push code ke GitHub
+2. Import project di Vercel
+3. Set environment variables
+4. Deploy!
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+### Docker
+
+```bash
+# Build image
+docker build -t arisan-ku .
+
+# Run container
+docker run -p 3000:3000 arisan-ku
+```
+
+Lihat [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md) untuk detail lengkap.
 
 ## 📚 Documentation
 
-- [Project Structure](PROJECT_STRUCTURE.md) - Detailed folder structure
-- [Project Status](PROJECT_STATUS.md) - Current project status
-- [Landing Page Guide](LANDING_PAGE_GUIDE.md) - Landing page documentation
-- [GitHub Setup](GITHUB_SETUP.md) - GitHub setup guide
-- [Fixes Applied](FIXES_APPLIED.md) - Bug fixes log
-
----
+- [Quick Start Guide](./docs/QUICK_START.md)
+- [Design System](./docs/COMPLETE_SYSTEM_CONSISTENCY.md)
+- [Testing Guide](./docs/TESTING_GUIDE.md)
+- [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md)
+- [Super Admin Guide](./docs/SUPER_ADMIN_GUIDE.md)
+- [Panduan Pengelola](./docs/PANDUAN_BANDAR.md)
+- [Panduan Peserta](./docs/PANDUAN_PESERTA.md)
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome! Please read our contributing guidelines first.
 
 1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
----
-
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
 ## 👥 Team
 
-- **Developer:** Your Name
-- **Email:** your-email@domain.com
-- **GitHub:** [@your-username](https://github.com/your-username)
-
----
+- **Developer**: Pak D Sinnay
+- **Repository**: [github.com/bukdan69/kiroku](https://github.com/bukdan69/kiroku)
 
 ## 🙏 Acknowledgments
 
-- [Next.js](https://nextjs.org/) - React framework
-- [Drizzle ORM](https://orm.drizzle.team/) - TypeScript ORM
-- [Supabase](https://supabase.com/) - Backend as a Service
-- [shadcn/ui](https://ui.shadcn.com/) - UI components
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-- [Midtrans](https://midtrans.com/) - Payment gateway
-
----
+- Next.js team for the amazing framework
+- shadcn for the beautiful UI components
+- Supabase for the backend infrastructure
+- Midtrans for payment gateway
+- All contributors and users
 
 ## 📞 Support
 
-- **Email:** support@arisanku.com
-- **WhatsApp:** +62 812-3456-7890
-- **Documentation:** [docs.arisanku.com](https://docs.arisanku.com)
-- **Issues:** [GitHub Issues](https://github.com/YOUR-USERNAME/arisan-ku/issues)
+- **Email**: support@arisanku.com
+- **WhatsApp**: +62 812-3456-7890
+- **Website**: [arisanku.com](https://arisanku.com)
 
 ---
 
-## 🎯 Roadmap
+**Powered by Pak D Sinnay** ✨
 
-### Phase 1: MVP (Current)
-- [x] Core features
-- [x] Landing page
-- [x] Authentication
-- [x] Payment integration
-- [x] Notification system
-
-### Phase 2: Enhancement (Q2 2026)
-- [ ] Mobile app (React Native)
-- [ ] Advanced analytics
-- [ ] AI-powered features
-- [ ] Multi-language support
-
-### Phase 3: Scale (Q3 2026)
-- [ ] Enterprise features
-- [ ] White-label solution
-- [ ] API marketplace
-- [ ] International expansion
-
----
-
-## 📈 Statistics
-
-- **Total Files:** 150+
-- **Lines of Code:** 15,000+
-- **API Endpoints:** 20+
-- **Database Tables:** 20+
-- **React Components:** 30+
-- **Production Ready:** 95%
-
----
-
-## 🎉 Status
-
-**Current Version:** 0.2.0  
-**Status:** 95% Production Ready ✅  
-**Last Updated:** January 30, 2026
-
----
-
-<div align="center">
-
-**Made with ❤️ in Indonesia**
-
-[Website](https://arisanku.com) • [Documentation](https://docs.arisanku.com) • [Support](mailto:support@arisanku.com)
-
-</div>
+Made with ❤️ in Indonesia

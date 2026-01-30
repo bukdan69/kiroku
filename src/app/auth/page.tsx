@@ -17,6 +17,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import Link from "next/link"
+import Navbar from "@/components/landing/Navbar"
 
 const forgotPasswordSchema = z.object({
   email: z.string().email("Email tidak valid"),
@@ -160,7 +161,12 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden p-4">
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Navbar */}
+      <Navbar />
+      
+      {/* Auth Content */}
+      <div className="relative flex min-h-screen items-center justify-center p-4 pt-20">
       {/* Dramatic Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-primary/20 to-slate-950">
         {/* Animated gradient orbs */}
@@ -485,6 +491,7 @@ export default function AuthPage() {
             </div>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   )

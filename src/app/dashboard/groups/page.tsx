@@ -72,18 +72,18 @@ export default function GroupsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Header */}
-      <header className="border-b bg-card">
+      <header className="border-b border-primary/20 bg-slate-900/50 backdrop-blur-xl">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="icon" onClick={() => router.back()}>
               <ArrowRight className="h-4 w-4 rotate-180" />
             </Button>
-            <h1 className="text-xl font-semibold">Grup Arisan Saya</h1>
+            <h1 className="text-xl font-semibold bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">Grup Arisan Saya</h1>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">{user.email}</span>
+            <span className="text-sm text-slate-400">{user.email}</span>
             <Button variant="outline" size="sm" onClick={() => signOut()}>
               Logout
             </Button>
@@ -95,8 +95,8 @@ export default function GroupsPage() {
       <main className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-2xl font-bold">Grup Arisan</h2>
-            <p className="text-muted-foreground">Kelola dan lihat semua grup arisan Anda</p>
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">Grup Arisan</h2>
+            <p className="text-slate-400">Kelola dan lihat semua grup arisan Anda</p>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" onClick={handleJoinGroup}>
@@ -115,31 +115,35 @@ export default function GroupsPage() {
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
           </div>
         ) : groups.length === 0 ? (
-          <div className="text-center py-12">
-            <Users className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Belum Ada Grup</h3>
-            <p className="text-muted-foreground mb-4">
-              Anda belum bergabung dengan grup arisan mana pun. Buat grup baru atau gabung dengan grup yang sudah ada.
-            </p>
-            <div className="flex gap-2 justify-center">
-              <Button variant="outline" onClick={handleJoinGroup}>
-                Gabung Grup
-              </Button>
-              <Button onClick={handleCreateGroup}>
-                Buat Grup Baru
-              </Button>
-            </div>
-          </div>
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm">
+            <CardContent className="text-center py-12">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center mb-4 mx-auto">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-white">Belum Ada Grup</h3>
+              <p className="text-slate-400 mb-6">
+                Anda belum bergabung dengan grup arisan mana pun. Buat grup baru atau gabung dengan grup yang sudah ada.
+              </p>
+              <div className="flex gap-3 justify-center">
+                <Button variant="outline" onClick={handleJoinGroup}>
+                  Gabung Grup
+                </Button>
+                <Button onClick={handleCreateGroup}>
+                  Buat Grup Baru
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {groups.map((group) => (
-              <Card key={group.id} className="hover:shadow-lg transition-shadow cursor-pointer">
+              <Card key={group.id} className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="text-lg">{group.name}</CardTitle>
+                      <CardTitle className="text-lg text-white">{group.name}</CardTitle>
                       {group.description && (
-                        <CardDescription className="mt-1">
+                        <CardDescription className="mt-1 text-slate-400">
                           {group.description}
                         </CardDescription>
                       )}
@@ -153,30 +157,30 @@ export default function GroupsPage() {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
-                        <Users className="h-4 w-4 text-muted-foreground" />
-                        <span>Peserta</span>
+                        <Users className="h-4 w-4 text-primary" />
+                        <span className="text-slate-400">Peserta</span>
                       </div>
-                      <span className="font-medium">
+                      <span className="font-medium text-white">
                         {group._count?.participants || 0}/{group.maxParticipants}
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
-                        <DollarSign className="h-4 w-4 text-muted-foreground" />
-                        <span>Iuran</span>
+                        <DollarSign className="h-4 w-4 text-primary" />
+                        <span className="text-slate-400">Iuran</span>
                       </div>
-                      <span className="font-medium">
+                      <span className="font-medium text-white">
                         Rp {parseInt(group.contributionAmount).toLocaleString('id-ID')}
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-muted-foreground" />
-                        <span>Periode</span>
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <span className="text-slate-400">Periode</span>
                       </div>
-                      <span className="font-medium">
+                      <span className="font-medium text-white">
                         {group.currentPeriod}/{group.totalPeriods}
                       </span>
                     </div>

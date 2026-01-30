@@ -78,8 +78,8 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold">Dashboard</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">Dashboard</h1>
+            <p className="text-slate-400">
               Selamat datang kembali, {profile?.name || user.email}
             </p>
           </div>
@@ -126,19 +126,19 @@ export default function DashboardPage() {
 
         {/* KYC Status Banner */}
         {!kycApproved && (
-          <Card className="border-yellow-200 bg-yellow-50">
+          <Card className="border-2 border-yellow-500/30 bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-yellow-800">
+              <CardTitle className="flex items-center gap-2 text-yellow-400">
                 <FileCheck className="h-5 w-5" />
                 Verifikasi KYC Diperlukan
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-yellow-700">
+              <p className="text-slate-300">
                 Anda perlu menyelesaikan verifikasi KYC untuk dapat mengakses semua fitur platform.
               </p>
               <Button 
-                className="mt-2" 
+                className="mt-4" 
                 variant="outline"
                 onClick={() => router.push('/dashboard/kyc')}
               >
@@ -151,47 +151,55 @@ export default function DashboardPage() {
 
         {/* Stats Cards */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <Card>
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Grup</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Total Grup</CardTitle>
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center">
+                <Users className="h-5 w-5 text-primary" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.totalGroups}</div>
-              <p className="text-xs text-muted-foreground">Arisan groups</p>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">{stats.totalGroups}</div>
+              <p className="text-xs text-slate-400">Arisan groups</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Grup Aktif</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Grup Aktif</CardTitle>
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center">
+                <Users className="h-5 w-5 text-primary" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.activeGroups}</div>
-              <p className="text-xs text-muted-foreground">Sedang berjalan</p>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">{stats.activeGroups}</div>
+              <p className="text-xs text-slate-400">Sedang berjalan</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Saldo Wallet</CardTitle>
-              <Wallet className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Saldo Wallet</CardTitle>
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center">
+                <Wallet className="h-5 w-5 text-primary" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.walletBalance}</div>
-              <p className="text-xs text-muted-foreground">Tersedia</p>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">{stats.walletBalance}</div>
+              <p className="text-xs text-slate-400">Tersedia</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Transaksi</CardTitle>
-              <BarChart3 className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Total Transaksi</CardTitle>
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center">
+                <BarChart3 className="h-5 w-5 text-primary" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.totalTransactions}</div>
-              <p className="text-xs text-muted-foreground">Semua transaksi</p>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">{stats.totalTransactions}</div>
+              <p className="text-xs text-slate-400">Semua transaksi</p>
             </CardContent>
           </Card>
         </div>
@@ -205,21 +213,23 @@ export default function DashboardPage() {
           </TabsList>
 
           <TabsContent value="groups" className="space-y-4">
-            <Card>
+            <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle>Grup Arisan Saya</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-white">Grup Arisan Saya</CardTitle>
+                <CardDescription className="text-slate-400">
                   Kelola dan pantau semua grup arisan yang Anda ikuti
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <Users className="h-12 w-12 text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Belum ada grup</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center mb-4">
+                    <Users className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 text-white">Belum ada grup</h3>
+                  <p className="text-slate-400 mb-6">
                     Anda belum bergabung dengan grup arisan mana pun
                   </p>
-                  <div className="space-x-2">
+                  <div className="flex gap-3">
                     <Button asChild>
                       <Link href="/dashboard/groups/create">
                         <Plus className="mr-2 h-4 w-4" />
@@ -239,27 +249,29 @@ export default function DashboardPage() {
           </TabsContent>
 
           <TabsContent value="transactions" className="space-y-4">
-            <Card>
+            <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle>Riwayat Transaksi</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-white">Riwayat Transaksi</CardTitle>
+                <CardDescription className="text-slate-400">
                   Pantau semua transaksi masuk dan keluar
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-center py-12">
-                  <BarChart3 className="h-12 w-12 text-muted-foreground mb-4 mx-auto" />
-                  <p className="text-muted-foreground">Belum ada transaksi</p>
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center mb-4 mx-auto">
+                    <BarChart3 className="h-8 w-8 text-primary" />
+                  </div>
+                  <p className="text-slate-400">Belum ada transaksi</p>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="wallet" className="space-y-4">
-            <Card>
+            <Card className="border-2 border-primary/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle>Wallet Saya</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-white">Wallet Saya</CardTitle>
+                <CardDescription className="text-slate-400">
                   Kelola saldo dan penarikan dana
                 </CardDescription>
               </CardHeader>
@@ -267,15 +279,15 @@ export default function DashboardPage() {
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm text-muted-foreground">Saldo Tersedia</p>
-                      <p className="text-2xl font-bold">{stats.walletBalance}</p>
+                      <p className="text-sm text-slate-400">Saldo Tersedia</p>
+                      <p className="text-2xl font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">{stats.walletBalance}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Total Penghasilan</p>
-                      <p className="text-2xl font-bold">{stats.totalEarnings}</p>
+                      <p className="text-sm text-slate-400">Total Penghasilan</p>
+                      <p className="text-2xl font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">{stats.totalEarnings}</p>
                     </div>
                   </div>
-                  <div className="pt-4 border-t">
+                  <div className="pt-4 border-t border-primary/20">
                     <Button variant="outline" className="w-full">
                       <Wallet className="mr-2 h-4 w-4" />
                       Tarik Dana

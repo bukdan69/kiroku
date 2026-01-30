@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/config/site"
 
 const CTASection = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-primary to-cyan-500 text-white relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-primary via-cyan-500 to-purple-500 text-white relative overflow-hidden">
       {/* Background decoration with animated glow */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
@@ -23,29 +23,33 @@ const CTASection = () => {
         }} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Badge with glow */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-sm font-medium mb-8 shadow-lg shadow-white/20 border border-white/30">
-            <Sparkles className="w-4 h-4 animate-pulse" />
-            Gratis untuk 100 pengguna pertama bulan ini!
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/25 backdrop-blur-md text-sm font-bold mb-8 shadow-2xl shadow-white/30 border-2 border-white/40 animate-pulse">
+            <Sparkles className="w-5 h-5 text-white" />
+            <span className="text-white">Gratis untuk 100 pengguna pertama bulan ini!</span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
-            Siap Modernisasi Arisan Anda?
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 drop-shadow-2xl text-white">
+            Siap{" "}
+            <span className="bg-gradient-to-r from-white via-cyan-100 to-purple-100 bg-clip-text text-transparent">
+              Modernisasi
+            </span>{" "}
+            Arisan Anda?
           </h2>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-lg">
+          <p className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto drop-shadow-lg font-medium">
             Bergabunglah dengan ribuan pengguna yang sudah merasakan kemudahan mengelola arisan secara digital. Daftar sekarang dan mulai dalam hitungan menit!
           </p>
 
           {/* CTA Buttons with enhanced effects */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
-              className="bg-white text-primary hover:bg-white/90 hover:scale-110 text-lg px-8 h-14 shadow-2xl shadow-white/30 font-bold"
+              className="bg-slate-900 text-white hover:bg-slate-800 hover:scale-105 text-lg px-10 h-14 shadow-2xl shadow-slate-900/50 font-bold border-2 border-slate-900 transition-all duration-300"
               asChild
             >
               <Link href="/auth">
@@ -56,7 +60,7 @@ const CTASection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white/20 hover:scale-105 text-lg px-8 h-14 backdrop-blur-sm shadow-lg"
+              className="border-3 border-white bg-white/10 text-white hover:bg-white hover:text-primary hover:scale-105 text-lg px-10 h-14 backdrop-blur-md shadow-2xl shadow-white/20 font-bold transition-all duration-300"
               asChild
             >
               <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} target="_blank" rel="noopener noreferrer">
@@ -66,24 +70,24 @@ const CTASection = () => {
           </div>
 
           {/* Trust indicators with glow */}
-          <div className="flex flex-wrap justify-center gap-8 mt-12 text-sm text-white/90">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30 shadow-xl">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="font-medium">Tanpa kartu kredit</span>
+              <span className="font-bold text-white">Tanpa kartu kredit</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30 shadow-xl">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="font-medium">Setup dalam 5 menit</span>
+              <span className="font-bold text-white">Setup dalam 5 menit</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center gap-2 px-5 py-3 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30 shadow-xl">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="font-medium">Support 24/7</span>
+              <span className="font-bold text-white">Support 24/7</span>
             </div>
           </div>
         </div>

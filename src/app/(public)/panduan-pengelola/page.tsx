@@ -1,13 +1,15 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { 
-  ArrowLeft, UserPlus, Users, Wallet, Trophy, 
+  UserPlus, Users, Wallet, Trophy, 
   CheckCircle, Shield, Bell, TrendingUp, Zap,
   ArrowRight, Play, Download, MessageCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Navbar from "@/components/landing/Navbar";
+import Footer from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
   title: "Panduan Pengelola Arisan - Arisan KU",
@@ -137,18 +139,8 @@ export default function PanduanPengelolaPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-background">
-      {/* Header */}
-      <div className="border-b bg-background/80 backdrop-blur-lg sticky top-0 z-50">
-        <div className="container max-w-7xl mx-auto px-4 py-4">
-          <Link 
-            href="/" 
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Kembali ke Beranda
-          </Link>
-        </div>
-      </div>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
@@ -157,7 +149,7 @@ export default function PanduanPengelolaPage() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
 
-        <div className="container max-w-7xl mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="text-center mb-16">
             <Badge className="mb-4 text-sm px-4 py-2">
               <Zap className="w-4 h-4 mr-2" />
@@ -209,10 +201,13 @@ export default function PanduanPengelolaPage() {
 
       {/* Steps Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container max-w-7xl mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              5 Langkah <span className="text-primary">Mengelola Arisan</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              5 Langkah{" "}
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                Mengelola Arisan
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Dari pendaftaran hingga undian, semua bisa dilakukan dengan mudah dan cepat
@@ -457,10 +452,13 @@ export default function PanduanPengelolaPage() {
 
       {/* Features Section */}
       <section className="py-20">
-        <div className="container max-w-7xl mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Kenapa Pilih <span className="text-primary">Arisan KU?</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Kenapa Pilih{" "}
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                Arisan KU?
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Platform terlengkap dengan fitur otomasi dan keamanan terbaik
@@ -485,10 +483,13 @@ export default function PanduanPengelolaPage() {
 
       {/* FAQ Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container max-w-4xl mx-auto px-4">
+        <div className="container max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Pertanyaan <span className="text-primary">Umum</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Pertanyaan{" "}
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                Umum
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground">
               Jawaban untuk pertanyaan yang sering ditanyakan
@@ -515,9 +516,12 @@ export default function PanduanPengelolaPage() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl" />
         </div>
 
-        <div className="container max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Siap Mulai Mengelola Arisan?
+        <div className="container max-w-5xl mx-auto px-6 md:px-8 lg:px-12 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Siap Mulai{" "}
+            <span className="bg-gradient-to-r from-white via-cyan-100 to-purple-100 bg-clip-text text-transparent">
+              Mengelola Arisan?
+            </span>
           </h2>
           <p className="text-xl text-white/90 mb-8">
             Daftar sekarang dan kelola arisan Anda dengan lebih mudah, aman, dan profesional
@@ -538,6 +542,9 @@ export default function PanduanPengelolaPage() {
           </div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Shield, Users, Target, Award } from "lucide-react"
+import { Shield, Users, Target, Award } from "lucide-react"
 import { siteConfig } from "@/lib/config/site"
+import Navbar from "@/components/landing/Navbar"
+import Footer from "@/components/landing/Footer"
 
 export const metadata: Metadata = {
   title: "Tentang Kami - Arisan KU",
@@ -12,18 +14,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-background">
-      {/* Header */}
-      <div className="border-b border-primary/20 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary transition-all">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Kembali ke Beranda
-            </Button>
-          </Link>
-        </div>
-      </div>
-
+      {/* Navbar */}
+      <Navbar />
+      
       {/* Hero with gradient */}
       <section className="relative py-20 overflow-hidden">
         {/* Animated background */}
@@ -32,7 +25,7 @@ export default function AboutPage() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-page-in">
             Tentang{' '}
             <span className="bg-gradient-to-r from-primary via-cyan-500 to-purple-500 bg-clip-text text-transparent">
@@ -48,7 +41,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision with gradient cards */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <div className="group text-center p-8 rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5 shadow-lg hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
@@ -88,11 +81,11 @@ export default function AboutPage() {
           }} />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Nilai-Nilai{' '}
-              <span className="bg-gradient-to-r from-primary via-cyan-500 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Nilai-Nilai{" "}
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
                 Kami
               </span>
             </h2>
@@ -138,7 +131,7 @@ export default function AboutPage() {
 
       {/* Stats with gradient numbers */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center p-6 rounded-xl border border-primary/20 bg-gradient-to-br from-card to-primary/5 hover:shadow-lg hover:shadow-primary/20 transition-all">
               <p className="text-4xl font-bold bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent mb-2">
@@ -178,9 +171,13 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 text-center relative z-10 text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-            Siap Bergabung dengan Kami?
+        <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12 text-center relative z-10 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg">
+            Siap{" "}
+            <span className="bg-gradient-to-r from-white via-cyan-100 to-purple-100 bg-clip-text text-transparent">
+              Bergabung
+            </span>{" "}
+            dengan Kami?
           </h2>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md">
             Mulai kelola arisan Anda dengan lebih mudah dan transparan hari ini
@@ -193,20 +190,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Footer with gradient */}
-      <div className="border-t border-primary/20 py-8 bg-gradient-to-r from-background via-primary/5 to-background">
-        <div className="container mx-auto px-4 text-center space-y-3">
-          <div className="flex items-center justify-center gap-2 text-sm">
-            <span className="text-muted-foreground">Powered by</span>
-            <span className="font-bold bg-gradient-to-r from-primary via-cyan-500 to-purple-500 bg-clip-text text-transparent">
-              Pak D Sinnay
-            </span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-          </p>
-        </div>
-      </div>
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

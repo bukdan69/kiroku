@@ -48,35 +48,44 @@ const FAQSection = () => {
   ]
 
   return (
-    <section id="faq" className="py-24">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Pertanyaan yang <span className="text-primary">Sering Ditanyakan</span>
+    <section id="faq" className="py-16 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+
+      <div className="container max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
+        <div className="text-center mb-12 max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Pertanyaan yang{" "}
+            <span className="bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Sering Ditanyakan
+            </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             Temukan jawaban untuk pertanyaan umum tentang Arisan KU
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((faq, index) => (
             <Collapsible
               key={index}
               open={openIndex === index}
               onOpenChange={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <div className="border rounded-lg bg-card overflow-hidden">
-                <CollapsibleTrigger className="w-full p-6 text-left flex items-center justify-between hover:bg-muted/50 transition-colors">
-                  <span className="font-semibold text-lg pr-4">{faq.question}</span>
+              <div className="border-2 border-primary/20 rounded-lg bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm overflow-hidden hover:border-primary/40 transition-all duration-300">
+                <CollapsibleTrigger className="w-full p-5 text-left flex items-center justify-between hover:bg-primary/5 transition-colors">
+                  <span className="font-semibold text-lg pr-4 text-white">{faq.question}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-muted-foreground transition-transform flex-shrink-0 ${
+                    className={`w-5 h-5 text-primary transition-transform flex-shrink-0 ${
                       openIndex === index ? "transform rotate-180" : ""
                     }`}
                   />
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <div className="px-6 pb-6 text-muted-foreground">
+                  <div className="px-5 pb-5 text-slate-400">
                     {faq.answer}
                   </div>
                 </CollapsibleContent>
@@ -86,15 +95,15 @@ const FAQSection = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
+        <div className="text-center mt-10">
+          <p className="text-slate-400 mb-4">
             Masih ada pertanyaan lain?
           </p>
           <a
             href={`https://wa.me/${siteConfig.contact.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-slate-300 border-2 border-primary/30 rounded-lg hover:text-transparent hover:bg-gradient-to-r hover:from-primary hover:via-cyan-400 hover:to-purple-400 hover:bg-clip-text hover:border-primary transition-all duration-300"
           >
             Hubungi Kami via WhatsApp
           </a>

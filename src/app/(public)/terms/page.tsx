@@ -1,8 +1,7 @@
 import { Metadata } from "next"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
 import { siteConfig } from "@/lib/config/site"
+import Navbar from "@/components/landing/Navbar"
+import Footer from "@/components/landing/Footer"
 
 export const metadata: Metadata = {
   title: "Syarat & Ketentuan - Arisan KU",
@@ -12,20 +11,11 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <div className="border-b">
-        <div className="container mx-auto px-4 py-4">
-          <Link href="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Kembali ke Beranda
-            </Button>
-          </Link>
-        </div>
-      </div>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <div className="container max-w-5xl mx-auto px-6 md:px-8 lg:px-12 py-12">
         <h1 className="text-4xl font-bold mb-4">Syarat & Ketentuan</h1>
         <p className="text-muted-foreground mb-8">
           Terakhir diperbarui: {new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -216,11 +206,7 @@ export default function TermsPage() {
       </div>
 
       {/* Footer */}
-      <div className="border-t py-8">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-        </div>
-      </div>
+      <Footer />
     </div>
   )
 }
