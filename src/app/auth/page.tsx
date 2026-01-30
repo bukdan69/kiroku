@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2 } from "lucide-react"
+import { Loader2, Eye, EyeOff } from "lucide-react"
 import { z } from "zod"
 import {
   Tabs,
@@ -44,6 +44,11 @@ export default function AuthPage() {
   const [loading, setLoading] = useState(false)
   const [showForgotPassword, setShowForgotPassword] = useState(false)
   const [message, setMessage] = useState("")
+  
+  // Password visibility states
+  const [showLoginPassword, setShowLoginPassword] = useState(false)
+  const [showSignupPassword, setShowSignupPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   
   const [loginForm, setLoginForm] = useState({ email: "", password: "" })
   const [forgotPasswordForm, setForgotPasswordForm] = useState({ email: "" })
@@ -190,30 +195,30 @@ export default function AuthPage() {
 
       {/* Main Card with Animated Border */}
       <div className="relative w-full max-w-md z-10 animate-page-in">
-        {/* Animated border lighting effect */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary via-cyan-500 to-purple-500 rounded-2xl blur-lg opacity-75 animate-border-spin" />
+        {/* Animated border lighting effect - STATIC gradient with glow */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary via-cyan-500 to-purple-500 rounded-2xl blur-lg opacity-75" />
         
-        {/* Inner glow */}
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-cyan-500 to-purple-500 rounded-2xl opacity-50 animate-border-spin" style={{ animationDelay: '0.5s' }} />
+        {/* Inner glow - STATIC */}
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-cyan-500 to-purple-500 rounded-2xl opacity-50" />
         
         <Card className="relative bg-slate-900/90 backdrop-blur-xl border-2 border-primary/30 shadow-2xl shadow-primary/50">
-          <CardHeader className="text-center space-y-4">
+          <CardHeader className="text-center space-y-3 pb-4">
             {/* Logo with gradient */}
-            <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary via-cyan-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/50 animate-pulse">
-              <span className="text-3xl font-bold text-white">A</span>
+            <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary via-cyan-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/50 animate-pulse">
+              <span className="text-2xl font-bold text-white">A</span>
             </div>
             
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
               Arisan KU
             </CardTitle>
-            <CardDescription className="text-slate-300">
+            <CardDescription className="text-slate-300 text-sm">
               Platform arisan online terpercaya di Indonesia
             </CardDescription>
           </CardHeader>
           
-          <CardContent>
+          <CardContent className="space-y-4">
             {message && (
-              <div className={`mb-4 p-3 rounded-lg border-2 text-sm font-medium animate-page-in ${
+              <div className={`p-3 rounded-lg border-2 text-sm font-medium animate-page-in ${
                 message.includes('berhasil') 
                   ? 'bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-green-500/50 text-green-300' 
                   : 'bg-gradient-to-r from-red-500/20 to-rose-500/20 border-red-500/50 text-red-300'
@@ -224,7 +229,7 @@ export default function AuthPage() {
 
             <Button 
               onClick={handleGoogleLogin}
-              className="w-full mb-4 bg-white hover:bg-slate-100 text-slate-900 font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300" 
+              className="w-full bg-white hover:bg-slate-100 text-slate-900 font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300" 
               variant="outline"
               disabled={loading}
             >
@@ -246,7 +251,7 @@ export default function AuthPage() {
               )}
             </Button>
 
-            <div className="relative my-6">
+            <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t border-primary/30" />
               </div>
@@ -271,11 +276,11 @@ export default function AuthPage() {
                 </TabsTrigger>
               </TabsList>
 
-              <TabsContent value="login">
+              <TabsContent value="login" className="mt-4">
                 {showForgotPassword ? (
-                  <form onSubmit={handleForgotPassword} className="space-y-4 mt-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="forgot-email" className="text-slate-200">Email</Label>
+                  <form onSubmit={handleForgotPassword} className="space-y-3">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="forgot-email" className="text-slate-200 text-sm">Email</Label>
                       <Input
                         id="forgot-email"
                         type="email"
@@ -306,9 +311,9 @@ export default function AuthPage() {
                     </Button>
                   </form>
                 ) : (
-                  <form onSubmit={handleLogin} className="space-y-4 mt-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="login-email" className="text-slate-200">Email</Label>
+                  <form onSubmit={handleLogin} className="space-y-3">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="login-email" className="text-slate-200 text-sm">Email</Label>
                       <Input
                         id="login-email"
                         type="email"
@@ -319,17 +324,30 @@ export default function AuthPage() {
                         required
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="login-password" className="text-slate-200">Password</Label>
-                      <Input
-                        id="login-password"
-                        type="password"
-                        placeholder="••••••••"
-                        value={loginForm.password}
-                        onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
-                        className="bg-slate-800/50 border-primary/30 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary/50"
-                        required
-                      />
+                    <div className="space-y-1.5">
+                      <Label htmlFor="login-password" className="text-slate-200 text-sm">Password</Label>
+                      <div className="relative">
+                        <Input
+                          id="login-password"
+                          type={showLoginPassword ? "text" : "password"}
+                          placeholder="••••••••"
+                          value={loginForm.password}
+                          onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+                          className="bg-slate-800/50 border-primary/30 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary/50 pr-10"
+                          required
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowLoginPassword(!showLoginPassword)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors"
+                        >
+                          {showLoginPassword ? (
+                            <EyeOff className="w-5 h-5" />
+                          ) : (
+                            <Eye className="w-5 h-5" />
+                          )}
+                        </button>
+                      </div>
                     </div>
                     <Button type="submit" className="w-full shadow-xl shadow-primary/30" disabled={loading}>
                       {loading ? (
@@ -352,10 +370,10 @@ export default function AuthPage() {
                 )}
               </TabsContent>
 
-              <TabsContent value="signup">
-                <form onSubmit={handleSignup} className="space-y-4 mt-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-name" className="text-slate-200">Nama Lengkap</Label>
+              <TabsContent value="signup" className="mt-4">
+                <form onSubmit={handleSignup} className="space-y-3">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="signup-name" className="text-slate-200 text-sm">Nama Lengkap</Label>
                     <Input
                       id="signup-name"
                       type="text"
@@ -366,8 +384,8 @@ export default function AuthPage() {
                       required
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-email" className="text-slate-200">Email</Label>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="signup-email" className="text-slate-200 text-sm">Email</Label>
                     <Input
                       id="signup-email"
                       type="email"
@@ -378,29 +396,55 @@ export default function AuthPage() {
                       required
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-password" className="text-slate-200">Password</Label>
-                    <Input
-                      id="signup-password"
-                      type="password"
-                      placeholder="••••••••"
-                      value={signupForm.password}
-                      onChange={(e) => setSignupForm({ ...signupForm, password: e.target.value })}
-                      className="bg-slate-800/50 border-primary/30 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary/50"
-                      required
-                    />
+                  <div className="space-y-1.5">
+                    <Label htmlFor="signup-password" className="text-slate-200 text-sm">Password</Label>
+                    <div className="relative">
+                      <Input
+                        id="signup-password"
+                        type={showSignupPassword ? "text" : "password"}
+                        placeholder="••••••••"
+                        value={signupForm.password}
+                        onChange={(e) => setSignupForm({ ...signupForm, password: e.target.value })}
+                        className="bg-slate-800/50 border-primary/30 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary/50 pr-10"
+                        required
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowSignupPassword(!showSignupPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors"
+                      >
+                        {showSignupPassword ? (
+                          <EyeOff className="w-5 h-5" />
+                        ) : (
+                          <Eye className="w-5 h-5" />
+                        )}
+                      </button>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-confirm" className="text-slate-200">Konfirmasi Password</Label>
-                    <Input
-                      id="signup-confirm"
-                      type="password"
-                      placeholder="••••••••"
-                      value={signupForm.confirmPassword}
-                      onChange={(e) => setSignupForm({ ...signupForm, confirmPassword: e.target.value })}
-                      className="bg-slate-800/50 border-primary/30 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary/50"
-                      required
-                    />
+                  <div className="space-y-1.5">
+                    <Label htmlFor="signup-confirm" className="text-slate-200 text-sm">Konfirmasi Password</Label>
+                    <div className="relative">
+                      <Input
+                        id="signup-confirm"
+                        type={showConfirmPassword ? "text" : "password"}
+                        placeholder="••••••••"
+                        value={signupForm.confirmPassword}
+                        onChange={(e) => setSignupForm({ ...signupForm, confirmPassword: e.target.value })}
+                        className="bg-slate-800/50 border-primary/30 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary/50 pr-10"
+                        required
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors"
+                      >
+                        {showConfirmPassword ? (
+                          <EyeOff className="w-5 h-5" />
+                        ) : (
+                          <Eye className="w-5 h-5" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                   <Button type="submit" className="w-full shadow-xl shadow-primary/30" disabled={loading}>
                     {loading ? (
@@ -416,7 +460,7 @@ export default function AuthPage() {
               </TabsContent>
             </Tabs>
 
-            <div className="mt-6 text-center text-sm text-slate-400">
+            <div className="mt-4 text-center text-xs text-slate-400">
               Dengan mendaftar, Anda menyetujui{' '}
               <Link href="/terms" className="text-primary hover:text-cyan-400 underline transition-colors font-medium">
                 Syarat & Ketentuan
@@ -425,6 +469,19 @@ export default function AuthPage() {
               <Link href="/privacy" className="text-primary hover:text-cyan-400 underline transition-colors font-medium">
                 Kebijakan Privasi
               </Link>
+            </div>
+
+            {/* Powered by & Copyright */}
+            <div className="mt-4 pt-4 border-t border-slate-700/50 text-center space-y-1.5">
+              <div className="flex items-center justify-center gap-2 text-xs">
+                <span className="text-slate-500">Powered by</span>
+                <span className="font-bold bg-gradient-to-r from-primary via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                  Pak D Sinnay
+                </span>
+              </div>
+              <div className="text-xs text-slate-500">
+                © {new Date().getFullYear()} Arisan KU. All rights reserved.
+              </div>
             </div>
           </CardContent>
         </Card>
